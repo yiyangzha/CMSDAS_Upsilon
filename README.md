@@ -1,8 +1,8 @@
-# Welcome to the CMSDAS Upsilon Cross-Section Long-exercise Repository
+## Welcome to the CMSDAS Upsilon Cross-Section Long-exercise Repository
 
 This repository contains materials for measurements of cross-sections of $\Upsilon(1S)$, $\Upsilon(2S)$, and $\Upsilon(3S)$ with 2025 CMS data.
 
-# Table of Contents
+## Table of Contents
 - [Part 0 - Remarks](instruction/0-remarks.md)
 - [Part 1 - Introduction](instruction/1-introduction.md)
 - [Part 2 - Data](instruction/2-data.md)
@@ -14,9 +14,12 @@ This repository contains materials for measurements of cross-sections of $\Upsil
 - [Part 8 - Event Display (Optional)](instruction/8-display.md)
 
 
+First of all:
 ```bash
 ssh <cern_username>@lxplus8.cern.ch
 
 cd YourWorkSpace
 git clone git@github.com:yiyangzha/CMSDAS_Upsilon.git
 ```
+
+Then, follow the tutorials in the `instruction` folder and enjoy your research!
