@@ -1,0 +1,29 @@
+# OS/editor
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Logs/temp
+*.log
+*.tmp
+
+# Large analysis artifacts
+*.root
+
+# Local build/runtime products
+data/CMSSW_*/
+data/results/
+CernJobs/
+event_display/results/
+acceptance/results/
+efficiency/mc_efficiency/results/
+yield/results/
+luminosity/results/
+cross_section/results/
