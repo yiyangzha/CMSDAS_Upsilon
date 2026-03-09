@@ -20,7 +20,7 @@ If intermediate lines are omitted, they are marked with `...`.
 - `Part 0`: conventions and environment initialization.
 - `Part 1`: physics context, measurement formula, trigger strategy, and analysis scope.
 - `Part 2`: data production workflow and first distribution-level validation.
-- `Part 3`: signal-yield extraction from dimuon-mass fits in $(p_T,|y|)$ bins.
+- `Part 3`: signal-yield extraction from dimuon-mass fits in $(p_\mathrm{T},|y|)$ bins.
 - `Part 4`: acceptance $A$ from generated-level kinematic phase space.
 - `Part 5`: efficiency $\epsilon$ from reconstruction-level event selection in MC.
 - `Part 6`: systematic-uncertainty strategy and acceptance-related example.

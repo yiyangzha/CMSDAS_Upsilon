@@ -1,6 +1,6 @@
 # Part 4 - Acceptance
 
-This part computes acceptance $A(p_T,|y|)$. Here acceptance contains only muon kinematic requirements, so it is effectively a geometric/kinematic acceptance.
+This part computes acceptance $A(p_\mathrm{T},|y|)$. Acceptance contains only muon kinematic requirements in our analysis.
 
 Why acceptance is needed:
 - even a perfectly efficient detector cannot observe events outside the fiducial region,
@@ -10,26 +10,19 @@ Why acceptance is needed:
 ## Acceptance Definition
 In each bin:
 $$
-A(p_T,|y|)=\frac{N^{\mathrm{fid}}_{\mathrm{gen}}(p_T,|y|)}{N^{\mathrm{all}}_{\mathrm{gen}}(p_T,|y|)}.
+A(p_\mathrm{T},|y|)=\frac{N^{\mathrm{fid}}_{\mathrm{gen}}(p_\mathrm{T},|y|)}{N^{\mathrm{all}}_{\mathrm{gen}}(p_\mathrm{T},|y|)}.
 $$
 - denominator: all generated $\Upsilon\to\mu^+\mu^-$ events in one bin,
 - numerator: events where both generated muons satisfy fiducial cuts.
 
 Acceptance cuts:
 - $|\eta(\mu)|<2.0$
-- $p_T(\mu)>3.1$ GeV
+- $p_\mathrm{T}(\mu)>3.1$ GeV
 
 
 
 ## Acceptance Calculation
-This part uses a generation-level MC.
-
-```bash
-cd /path/to/CMSDAS/acceptance
-root -l -b -q acceptance.C
-```
-
-Core logic:
+This part uses a generation-level MC and `acceptance.C`. Core logics are:
 ```cpp
 All[iY][iPt] += 1.0;
 ...
@@ -40,9 +33,15 @@ if (gen_muonN_p4->Pt() <= kMuonPtMin) continue;
 Passed[iY][iPt] += 1.0;
 ```
 
-Outputs are acceptance maps in $(p_T,|y|)$:
-- `acceptance/results/acceptance.csv`
-- `acceptance/results/acceptance.pdf`
+
+```bash
+cd /path/to/CMSDAS/acceptance
+root -l acceptance.C
+```
+
+Outputs are acceptance 2D maps in $(p_\mathrm{T},|y|)$:
+- `/path/to/CMSDAS/acceptance/results/acceptance.csv`
+- `/path/to/CMSDAS/acceptance/results/acceptance.pdf`
 
 
 Statistical uncertainty is computed with Clopper-Pearson intervals:

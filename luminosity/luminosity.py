@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import csv
 import json
+import os
 import shutil
 import subprocess
 import sys
@@ -32,6 +33,7 @@ BRILCALC_EXE = "brilcalc"
 BRILCALC_CONNECT = "web"
 NORMTAG: Optional[str] = None
 LUMI_UNIT = "/fb"
+
 
 @dataclass(frozen=True)
 class RunRange:
@@ -74,6 +76,21 @@ def combined_run_range(eras: List[str], mapping: Dict[str, Tuple[int, int]]) -> 
     return RunRange(start=min(starts), end=max(ends))
 
 
+def build_clean_env_for_brilcalc() -> Dict[str, str]:
+    env = os.environ.copy()
+    for key in [
+        "PYTHONHOME",
+        "PYTHONPATH",
+        "PYTHONSTARTUP",
+        "PYTHONUSERBASE",
+        "PYTHONNOUSERSITE",
+        "VIRTUAL_ENV",
+        "__PYVENV_LAUNCHER__",
+    ]:
+        env.pop(key, None)
+    return env
+
+
 def run_brilcalc_lumi(
     exe: str,
     connect: str,
@@ -94,12 +111,15 @@ def run_brilcalc_lumi(
     if normtag:
         cmd.extend(["--normtag", str(normtag)])
 
+    env = build_clean_env_for_brilcalc()
+
     proc = subprocess.run(
         cmd,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
         check=False,
+        env=env,
     )
     if proc.returncode != 0:
         raise RuntimeError(

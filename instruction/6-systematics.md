@@ -1,20 +1,20 @@
 # Part 6 - Systematics
 
-This part introduces systematic uncertainties and shows one concrete example in detail.
+This part introduces systematic uncertainties.
 
 ## Sources
 Every term in the cross-section expression can carry systematic uncertainty:
 $$
-\mathcal{B}\frac{d^2\sigma}{dp_T\,d|y|}
+\mathcal{B}\frac{d^2\sigma}{dp_\mathrm{T}\,dy}
 \propto
 \frac{N}{\mathcal{L}\,A\,\epsilon}.
 $$
 
 This means uncertainty can come from:
 - yield extraction ($N$),
-- acceptance modeling ($A$),
-- efficiency modeling ($\epsilon$),
-- luminosity normalization ($\mathcal{L}$).
+- acceptance ($A$),
+- efficiency ($\epsilon$),
+- integrated luminosity ($\mathcal{L}$).
 
 A common per-bin combination is
 $$
@@ -29,9 +29,9 @@ Due to limited time, we will use acceptance systematics as the main hands-on exa
 - threshold variations provide an intuitive and controlled way to probe modeling sensitivity.
 
 Threshold-variation setup:
-- nominal: $p_T^{\mu,\min}=3.1$ GeV,
-- down: $p_T^{\mu,\min}=3.0$ GeV,
-- up: $p_T^{\mu,\min}=3.2$ GeV.
+- nominal: $p_\mathrm{T}^{\mu,\min}=3.1$ GeV,
+- down: $p_\mathrm{T}^{\mu,\min}=3.0$ GeV,
+- up: $p_\mathrm{T}^{\mu,\min}=3.2$ GeV.
 
 > #### **Task**
 > 1. Copy and modify the acceptance program variants:
@@ -50,15 +50,8 @@ Threshold-variation setup:
 >    $$
 >    \delta_A^{\mathrm{syst}}=\frac{\max\left(|A_{\mathrm{up}}-A_{\mathrm{nom}}|,|A_{\mathrm{down}}-A_{\mathrm{nom}}|\right)}{A_{\mathrm{nom}}}.
 >    $$
-> 5. Build a generated-method bias estimate (continuation of `Part 4`):
->    $$
->    R_{\mathrm{closure}}=\frac{A_{\mathrm{alt}}}{A_{\mathrm{gen}}},\qquad
->    \delta_{A,\mathrm{model}}=|1-R_{\mathrm{closure}}|.
->    $$
->    Here, $A_{\mathrm{gen}}$ is the current generated-level acceptance, and $A_{\mathrm{alt}}$ is your alternative definition (for example including reconstruction-related effects).
+> 5. Plot acceptance systematic over $p_\mathrm{T}$ in each rapidity bin.
 
-> #### **Checkpoint**
-> Verify that low-$p_T$ bins show larger variation, consistent with threshold-dominated behavior.
 
 > #### **Question**
-> 1. Which $(p_T,|y|)$ regions are expected to show the largest closure deviation, why, and does this match your expectation from trigger/reconstruction boundary effects?
+> 1. Which $(p_\mathrm{T},|y|)$ regions are expected to have the larger acceptance systematic, why?

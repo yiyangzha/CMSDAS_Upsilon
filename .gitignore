@@ -13,6 +13,7 @@ __pycache__/
 # Logs/temp
 *.log
 *.tmp
+*.txt
 
 # Large analysis artifacts
 *.root

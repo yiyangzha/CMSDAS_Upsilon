@@ -57,7 +57,7 @@ void draw_pair(TH1D& hist1,
 }
 
 void plot() {
-  const std::string kInputFile = "/afs/ihep.ac.cn/users/y/yiyangzhao/Research/CMS_THU_Space/CMSDAS/data/selected/2025G0.root";
+  const std::string kInputFile = "/eos/home-y/yiyangz/public/CMSDAS/data/selected/2025G0.root";
   const std::string kTreePath = "rootuple/mm_tree";
   const std::string kOutputDir = "results";
 

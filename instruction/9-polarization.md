@@ -37,7 +37,7 @@ Available files are:
 > #### **Task**
 > Enable one polarization scenario (choose either transverse or longitudinal) in `ParticleGun-Upsilon2MM.py`.
 > 
-> Hints:
+> **Hints:**
 > 1. Focus on the `process.generator = cms.EDFilter("Pythia8PtGun", ...)` block.
 > 2. The relevant place is in `processParameters`, where decay settings are defined.
 > 3. Add polarization-related steering in the same block.
@@ -84,7 +84,7 @@ We will use HT-Condor to submit production jobs of polarized Particle-Gun MC.
 > #### **Task**
 > Recompute acceptance with your polarized ntuples.
 >
-> Hints:
+> **Hints:**
 > 1. In `acceptance/acceptance.C`, update the input ROOT pattern (wildcards are allowed).
 > 2. Change output CSV/PDF names to avoid overwriting nominal outputs.
 > 3. Run the acceptance program and store results for comparison with the nominal map.
@@ -98,10 +98,10 @@ We will use HT-Condor to submit production jobs of polarized Particle-Gun MC.
 > - acceptance correction factor $R_A = A_{\mathrm{pol}}/A_{\mathrm{nom}}$,
 > - cross-section correction factor $R_\sigma = 1/R_A$.
 >
-> Hints:
+> **Hints:**
 > 1. Match rows by `(pt_min, pt_max, y_abs_min, y_abs_max)`.
 > 2. Keep both correction factors in the output table for later propagation.
-> 3. Inspect the strongest deviations in low-$p_T$ and forward-rapidity bins first.
+> 3. Inspect the strongest deviations in low-$p_\mathrm{T}$ and forward-rapidity bins first.
 
 > #### **Question**
 > 1. Which kinematic regions are most sensitive to polarization effects on acceptance?

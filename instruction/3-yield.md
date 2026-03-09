@@ -1,9 +1,9 @@
 # Part 3 - Yield
 
-In this part you fit the dimuon mass spectrum in each $(p_T,|y|)$ bin and extract $N_{1S}$, $N_{2S}$, and $N_{3S}$.
+In this part you fit the dimuon mass spectrum in each $(p_\mathrm{T},|y|)$ bin and extract $N_{1S}$, $N_{2S}$, and $N_{3S}$.
 These are the numerator terms in the cross-section formula.
 
-Tree and bin definitions in `yield.C`:
+Tree and bin definitions are already in `yield.C`:
 ```cpp
 static const char* TREE_PATH = "rootuple/mm_tree";
 ...
@@ -13,23 +13,8 @@ for (int i = 0; i <= 20; ++i) e.push_back((double)i);
 const double tail[] = {20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 43, 46, 50, 55, 60, 70, 100, 130};
 ```
 
-- binning in $(p_T,|y|)$ matches the final differential measurement,
+- binning in $(p_\mathrm{T},|y|)$ matches the final differential measurement,
 - a per-bin fit allows direct propagation of statistical uncertainties.
-
-## Yield Fit
-```bash
-cd /path/to/CMSDAS/yield
-root -l -b -q yield.C
-```
-
-Outputs:
-- `yield/results/2025G/yields.csv`
-- `yield/results/2025G/results_ext.csv`
-- per-bin PDF files, for example `fit_pt_20-22_y_0p0-0p6.pdf`
-
-What you obtain from this step:
-- fitted values for $N_{1S}$, $N_{2S}$, $N_{3S}$,
-- fit diagnostics used later for quality control and uncertainty handling.
 
 ### Fit Model
 The fit model is
@@ -74,6 +59,21 @@ RooFitResult* fr = model.fitTo(
 
 - `Extended(true)` means normalization parameters (`N1,N2,N3,Nbkg`) enter the Poisson counting term and can be interpreted directly as event yields.
 - `Extended(false)` uses shape information only; normalization/yield interpretation is weaker.
+
+## Yield Fit
+```bash
+cd /path/to/CMSDAS/yield
+root -l yield.C
+```
+
+Outputs:
+- `/path/to/CMSDAS/yield/results/2025G/yields.csv`
+- `/path/to/CMSDAS/yield/results/2025G/results_ext.csv`
+- per-bin PDF files, for example `fit_pt_20-22_y_0p0-0p6.pdf`
+
+What you obtain from this step:
+- fitted values for $N_{1S}$, $N_{2S}$, $N_{3S}$,
+- fit diagnostics used later for quality control and uncertainty handling.
 
 ### Fit Quality
 Use both fit PDFs and `results_ext.csv` to check:
