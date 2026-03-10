@@ -18,15 +18,15 @@ If intermediate lines are omitted, they are marked with `...`.
 
 ## Course Structure
 - `Part 0`: conventions and environment initialization.
-- `Part 1`: physics context, measurement formula, trigger strategy, and analysis scope.
-- `Part 2`: data production workflow and first distribution-level validation.
-- `Part 3`: signal-yield extraction from dimuon-mass fits in $(p_\mathrm{T},|y|)$ bins.
-- `Part 4`: acceptance $A$ from generated-level kinematic phase space.
-- `Part 5`: efficiency $\epsilon$ from reconstruction-level event selection in MC.
-- `Part 6`: systematic-uncertainty strategy and acceptance-related example.
-- `Part 7`: luminosity, cross-section computation, plotting, and validation.
-- `Part 8` (optional): event-display workflow with `cmsShow`.
-- `Part 9` (optional): polarization impact on acceptance.
+- `Part 1`: physics context, cross section formula, trigger strategy, and analysis scope.
+- `Part 2`: data production and first distribution-level validation.
+- `Part 3`: signal-yield extraction from dimuon-mass fits in each $(p_\mathrm{T},|y|)$ bin.
+- `Part 4`: acceptance $A$ calculation with generated-level MC.
+- `Part 5`: efficiency $\epsilon$ calculation from reconstruction-level MC.
+- `Part 6`: systematic uncertainty estimation.
+- `Part 7`: cross-section calculation, plotting, and validation.
+- `Part 8` (optional): event-display with `cmsShow`.
+- `Part 9` (optional): polarization effects on acceptance.
 
 ## Environment Setup
 Each time you start working in your project area on `lxplus8`, initialize the environment first:

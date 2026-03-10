@@ -32,7 +32,7 @@ PT_MIN_PLOT = 20.0
 PT_MAX_PLOT = 130.0
 
 COLORS = {1: "#e42536", 2: "#3a981dff", 3: "#5790fc"}
-STATE_LABELS = {1: r"$\Upsilon(1S)$", 2: r"$\Upsilon(2S)$", 3: r"$\Upsilon(3S)$"}
+STATE_LABELS = {1: r"$\Upsilon(1\mathrm{S})$", 2: r"$\Upsilon(2\mathrm{S})$", 3: r"$\Upsilon(3\mathrm{S})$"}
 
 YBIN_TO_RAPIDX = {(0.0, 0.6): 1, (0.6, 1.2): 2}
 RAP_LABELS = {1: r"$|\mathit{y}|<0.6$", 2: r"$0.6<|\mathit{y}|<1.2$"}

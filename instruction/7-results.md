@@ -1,6 +1,6 @@
 # Part 7 - Results
 
-This part combines $N$, $A$, $\epsilon$, and $\mathcal{L}$ to produce differential cross sections results and final figures.
+This part combines $N$, $A$, $\epsilon$, and $\mathcal{L}$ to produce the differential cross sections and final figures.
 
 ## Python Setup
 
@@ -17,7 +17,7 @@ python3 -c "import pandas,numpy,matplotlib,mplhep; print('python packages ok')"
 > Continue only after both `python3 -c` tests complete successfully.
 
 ## Luminosity
-Luminosity, $\mathcal{L}$, is the absolute normalization of the measurement. Any luminosity bias directly rescales the extracted cross section. We will use `Cert_Collisions2025_391658_398903_Muon.json`, which was previously employed to generate data samples, to compute the integral luminosity of the used dataset after mask selection.
+Luminosity, $\mathcal{L}$, is the absolute normalization of the measurement. Any luminosity bias directly rescales the extracted cross section. We will use `Cert_Collisions2025_391658_398903_Muon.json`, which was previously employed to generate the data sample, to compute the integrated luminosity of the dataset used in the exercise after mask selection.
 
 ```bash
 cd /path/to/CMSDAS_Upsilon/luminosity
@@ -62,5 +62,5 @@ Plot meaning:
 - `plot_comprison_13p6TeV.py` provides 2025/2022 ratios for consistency and evolution checks.
 
 > #### **Question**
-> 1. After inspecting these PDFs, what are the observed differential cross-section trends versus $p_\mathrm{T}$ and rapidity?
+> 1. After inspecting these `.pdf`, what are the observed differential cross-section trends versus $p_\mathrm{T}$ and rapidity?
 > 2. Why do these trends appear, and are they consistent with your physical expectation?

@@ -3,7 +3,7 @@
 This part shows how to visualize event topology with cmsShow.
 
 ## Python Setup
-**Note**: open a new terminal or re-connect to `lxplus8` server before continue.
+**Note**: open a new terminal or reconnect to the `lxplus8` server before continuing.
 
 ```bash
 cd /path/to/CMSDAS_Upsilon/data/CMSSW_15_0_18/src

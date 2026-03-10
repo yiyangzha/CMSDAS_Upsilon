@@ -5,6 +5,7 @@ We will use 2025 `ParkingDoubleMuonLowMass` samples in MINIAOD format:
 
 | Era | Dataset | Integrated luminosity recorded by CMS [$\mathrm{fb}^{-1}$] | Run range |
 | --- | --- | --- | --- |
+| 2025E | `/ParkingDoubleMuonLowMass*/Run2025E-PromptReco-v1/MINIAOD` | 14.2 | 395968-396597 |
 | 2025F | `/ParkingDoubleMuonLowMass*/Run2025F-PromptReco-v1/MINIAOD` | 27.3 | 396598-397853 |
 | 2025G | `/ParkingDoubleMuonLowMass*/Run2025G-PromptReco-v1/MINIAOD` | 23.0 | 397854-398903 |
 
@@ -93,7 +94,7 @@ cd /path/to/CMSDAS_Upsilon/data
 root -l plot.C
 ```
 
-Inspect the output varible distributions in `/path/to/CMSDAS_Upsilon/data/results`.
+Inspect the output variable distributions in `/path/to/CMSDAS_Upsilon/data/results`.
 
 > #### **Task**
 > The current program draws variables distributions without applying any selections. To obtain variable distributions of events that are actually used in the analysis, the following selections mentioned earlier should be added inside the event loop:
@@ -111,7 +112,7 @@ Inspect the output varible distributions in `/path/to/CMSDAS_Upsilon/data/result
 > ```
 > 2. Besides adding selections, remember to also edit the save path of figures.
 
-Inspect the output varible distributions with selections in the save path you set.
+Inspect the output variable distributions with selections in the save path you set.
 
 > #### **Question**
 > 1. Compare distributions before and after your selections: what observables have changed, and why?

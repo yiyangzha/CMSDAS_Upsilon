@@ -33,9 +33,9 @@ YBIN_LABELS = {
 
 COLORS = {1: "#e42536", 2: "#3a981dff", 3: "#5790fc"}  # 1S, 2S, 3S
 STATE_LABELS = {
-    1: r"$\Upsilon(1S)\times100$",
-    2: r"$\Upsilon(2S)\times10$",
-    3: r"$\Upsilon(3S)$",
+    1: r"$\Upsilon(1\mathrm{S})\times100$",
+    2: r"$\Upsilon(2\mathrm{S})\times10$",
+    3: r"$\Upsilon(3\mathrm{S})$",
 }
 STATE_SCALE = {1: 100.0, 2: 10.0, 3: 1.0}
 

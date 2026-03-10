@@ -21,7 +21,7 @@ Acceptance cuts:
 
 
 ## Acceptance Calculation
-This part uses a generation-level MC and `acceptance.C`. Core logics are:
+This part uses a generation-level MC and `acceptance.C`. The core logic is:
 ```cpp
 All[iY][iPt] += 1.0;
 ...

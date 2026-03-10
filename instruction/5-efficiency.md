@@ -3,7 +3,7 @@
 This part computes efficiency $\epsilon(p_\mathrm{T},|y|)$, the probability that events inside the fiducial region are reconstructed and pass analysis selections.
 
 Why efficiency is needed:
-- similiar to acceptance, efficiency quantifies the probability that fiducial events survive the full analysis chain.
+- similar to acceptance, efficiency quantifies the probability that fiducial events survive the full analysis chain.
 - the final selection also improves signal-to-background ratio, which stabilizes the mass fits and helps reduce statistical/fit uncertainty.
 
 ## Efficiency Definition
@@ -19,7 +19,7 @@ Physical interpretation of the numerator cuts:
 - `vProb` and candidate/charge requirements model analysis-level quality and topology constraints.
 
 ## Efficiency Calculation
-This part uses a full-chain MC (generation, detector simulation, particle reconstruction, etc.), which hopes to match the process of collecting data in reality. In `mc_efficiency.C`, core logics are:
+This part uses a full-chain MC with generation, detector simulation, and particle reconstruction to model the real data-taking chain. In `mc_efficiency.C`, the core logic is:
 ```cpp
 if (std::abs(gen_muonP_p4->Eta()) > kMuonAbsEtaMax) continue;
 if (std::abs(gen_muonM_p4->Eta()) > kMuonAbsEtaMax) continue;

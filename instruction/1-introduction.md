@@ -2,8 +2,8 @@
 
 ## Overview
 - This is the first analysis step that uses the new 2025 trigger path `HLT_Dimuon0_Upsilon`.
-- Enabled by this new trigger, the measurement covers low-$p_\mathrm{T}$ and high-$p_\mathrm{T}$ regions in one workflow.
-- The target phase space is broad: $0-130$ GeV and $|y|<2.4$.
+- Enabled by this trigger, the measurement covers both low-$p_\mathrm{T}$ and high-$p_\mathrm{T}$ regions in one workflow.
+- The target phase space spans $p_\mathrm{T}=0-130$ GeV and $|y|<2.4$.
 - This is the first $\Upsilon$ cross-section measurement based on 2025 data and also serves as a data-quality validation.
 
 ### References
@@ -12,17 +12,18 @@
 - CADI: [BPH-24-004](https://cms.cern.ch/iCMS/analysisadmin/cadilines?line=BPH-24-004)
 - Analysis Note: [AN-23-142](https://cms.cern.ch/iCMS/jsp/db_notes/noteInfo.jsp?cmsnoteid=CMS%20AN-2023/142)
 
-## Cross-section
+## Cross Section
 For each state $\Upsilon(nS)$ ($n=1,2,3$), the measured quantity is
 
-$\mathcal{B}(\Upsilon(nS)\to\mu^+\mu^-)\,\frac{d^2\sigma_n}{dp_\mathrm{T}\,dy}
-=\frac{N_n}{\mathcal{L}\,A_n\,\epsilon_n\,\Delta p_\mathrm{T}\,\Delta y}.$
+$\mathcal{B}(\Upsilon(nS)\to\mu^+\mu^-)\,\frac{d^2\sigma_n}{dp_\mathrm{T}\,d|y|}
+=\frac{N_n}{\mathcal{L}\,A_n\,\epsilon_n\,\Delta p_\mathrm{T}\,2\Delta|y|}.$
 
 Here:
 - $N_n$ is the fitted signal yield.
 - $A_n$ is the acceptance.
 - $\epsilon_n$ is the efficiency.
 - $\mathcal{L}$ is the integrated luminosity.
+- The rapidity bins are defined in $|y|$, so the full rapidity width is $\Delta y = 2\Delta|y|$.
 
 ### Binning
 $|y|$: $[0.0,0.6]$, $[0.6,1.2]$, $[1.2,1.8]$, $[1.8,2.4]$
@@ -54,10 +55,12 @@ To inspect the full trigger content, use [cmshltinfo](https://cmshltinfo-dev.app
 > 1. Compare `HLT_Dimuon10_Upsilon_y1p4` and `HLT_Dimuon0_Upsilon`: what filter-level differences do you see?
 > 2. What is the benefit of using `HLT_Dimuon0_Upsilon`?
 
-## Overview
+## Tutorial Roadmap
 - `Part 2` (`Data`): produce/inspect ntuples and validate baseline data distributions.
 - `Part 3` (`Yield`): extract $N_{1S}$, $N_{2S}$, $N_{3S}$ with mass fits in each analysis bin.
 - `Part 4` (`Acceptance`): evaluate geometric/kinematic acceptance from generated-level information.
 - `Part 5` (`Efficiency`): quantify trigger/reconstruction/selection efficiency using full-chain MC.
 - `Part 6` (`Systematics`): estimate uncertainty components and build a controlled acceptance example.
 - `Part 7` (`Results`): combine all ingredients into differential cross sections and validate final outputs.
+- `Part 8` (`Event Display`, optional): visualize selected events with `cmsShow`.
+- `Part 9` (`Polarization`, optional): study polarization effects on acceptance variations with event-level reweighting.

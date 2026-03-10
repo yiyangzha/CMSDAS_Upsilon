@@ -42,7 +42,7 @@ Threshold-variation setup:
 >    ```cpp
 >    const double kMuonPtMin     = 3.1;
 >    ```
-> 3. Run nominal/down/up and produce three CSV files.
+> 3. Run nominal/down/up and produce three `.csv` files.
 > 4. Compute per-bin acceptance systematic:
 >
 >    $\delta_A^{\mathrm{syst}}=\frac{\max\left(|A_{\mathrm{up}}-A_{\mathrm{nom}}|,|A_{\mathrm{down}}-A_{\mathrm{nom}}|\right)}{A_{\mathrm{nom}}}$.
@@ -50,4 +50,4 @@ Threshold-variation setup:
 
 
 > #### **Question**
-> 1. Which $(p_\mathrm{T},|y|)$ regions are expected to have the larger acceptance systematic, why?
+> 1. Which $(p_\mathrm{T},|y|)$ regions are expected to have the largest acceptance systematic, and why?
