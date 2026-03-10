@@ -31,9 +31,9 @@ python3 event_display.py \
 ```
 
 Outputs:
-- `/path/to/CMSDAS_Upsilon/event_display/output/event_display.txt`: event IDs in the format required by `edmPickEvents.py`.
-- `/path/to/CMSDAS_Upsilon/event_display/output/selected_events.csv`: tabulated metadata (`run`, `lumi`, `event`).
-- `/path/to/CMSDAS_Upsilon/event_display/output/pickevents.root`: picked event content used for visual inspection.
+- `/path/to/CMSDAS_Upsilon/event_display/results/event_display.txt`: event IDs in the format required by `edmPickEvents.py`.
+- `/path/to/CMSDAS_Upsilon/event_display/results/selected_events.csv`: tabulated metadata (`run`, `lumi`, `event`).
+- `/path/to/CMSDAS_Upsilon/event_display/results/pickevents.root`: picked event content used for visual inspection.
 
 > #### **Task**
 > Run the script on your ntuple and verify that 10 events were selected and written.
@@ -64,7 +64,9 @@ Then:
 ![cmsShow event view](figures/event_display_web.png)
 
 > #### **Task**
-> Inspect all 10 selected events and answer the following questions. Pick the one you think looks best to use as the background picture for your final presentation slides!
+> Inspect all 10 selected events and answer the following questions.
+> 
+> Pick the one you think looks best to use as the background picture for your final presentation slides!
 > #### **Question**
 > 1. Which reconstructed features are easiest to interpret visually in cmsShow for your selected events?
 > 2. Which details are difficult to evaluate from event display alone and still require quantitative analysis plots?

@@ -3,7 +3,7 @@
 ## Overview
 - This is the first analysis step that uses the new 2025 trigger path `HLT_Dimuon0_Upsilon`.
 - Enabled by this new trigger, the measurement covers low-$p_\mathrm{T}$ and high-$p_\mathrm{T}$ regions in one workflow.
-- The target phase space is broad: $0$-$130$ GeV and $|y|<2.4$.
+- The target phase space is broad: $0-130$ GeV and $|y|<2.4$.
 - This is the first $\Upsilon$ cross-section measurement based on 2025 data and also serves as a data-quality validation.
 
 ### References
