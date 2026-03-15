@@ -11,8 +11,6 @@ ssh <cern_username>@lxplus8.cern.ch
 cd /path/to/CMSDAS_Upsilon/data/CMSSW_15_0_18/src
 cmsenv
 
-export PATH=$HOME/.local/bin:/cvmfs/cms-bril.cern.ch/brilconda/bin:$PATH
-
 python3 -c "import sys; print(sys.version)"
 python3 -c "import pandas,numpy,matplotlib,mplhep; print('python packages ok')"
 ```
@@ -25,11 +23,10 @@ Luminosity, $\mathcal{L}$, is the absolute normalization of the measurement. Any
 
 ```bash
 cd /path/to/CMSDAS_Upsilon/luminosity
-python3 luminosity.py
-```
 
-Output:
-- `/path/to/CMSDAS_Upsilon/luminosity/results/2025G.csv`
+mkdir -p results
+cp /eos/home-y/yiyangz/public/CMSDAS/2025G.csv ./results/
+```
 
 
 ## Cross Section
