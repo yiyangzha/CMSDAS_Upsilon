@@ -48,9 +48,10 @@ root -l rootuple.root
 ...
 root [1] rootuple->cd()
 root [2] mm_tree->GetEntries()
-root [3] mm_tree->Show(0)
-root [4] mm_tree->Scan("dimuon_p4.Pt():dimuon_p4.Rapidity():trigger","","",5)
-root [5] .q
+root [3] mm_tree->Print()
+root [4] mm_tree->Show(0)
+root [5] mm_tree->Scan("dimuon_p4.Pt():dimuon_p4.Rapidity():trigger","","",5)
+root [6] .q
 ```
 
 Code-output relation:

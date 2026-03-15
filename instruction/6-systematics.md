@@ -43,7 +43,7 @@ Threshold-variation setup:
 >    const double kMuonPtMin     = 3.1;
 >    ```
 > 3. Run nominal/down/up and produce three `.csv` files.
-> 4. Compute per-bin acceptance systematic:
+> 4. Build a program by yourself, compute per-bin acceptance systematic:
 >
 >    $\delta_A^{\mathrm{syst}}=\frac{\max\left(|A_{\mathrm{up}}-A_{\mathrm{nom}}|,|A_{\mathrm{down}}-A_{\mathrm{nom}}|\right)}{A_{\mathrm{nom}}}$.
 > 5. Plot acceptance systematic over $p_\mathrm{T}$ in each rapidity bin.
