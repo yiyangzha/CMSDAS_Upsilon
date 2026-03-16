@@ -37,7 +37,7 @@ Then, generate a random number $r\in[0,1)$. If $r<f_T$, classify the event as tr
 
 > #### **Task**
 > 1. Copy `acceptance/acceptance.C` to `acceptance/acceptance_polrw.C`.
-> 2. Keep the same kinematic bins and fiducial cuts, so the only difference is the polarization treatment.
+> 2. Keep the same kinematic bins and acceptance cuts, so the only difference is the polarization treatment.
 > 3. Inside the event loop, compute $\cos\theta^*$ from the `gen_dimuon_p4`, `gen_muonP_p4`, and `gen_muonN_p4` using the definitions in the figure above. Calculate $I_T$, $I_L$, and $f_T$, and perform the random assignment to the transverse or longitudinal class.
 > 4. Use separate counters for the two classes, for example `All_T`, `Passed_T`, `All_L`, and `Passed_L`.
 > 5. Write separate outputs (`.csv` and `.pdf`) for the transverse and longitudinal cases, with distinct file names to avoid overwriting the nominal results.
