@@ -65,11 +65,11 @@ $p_\mathrm{T}$: $0-20$ in $1$ GeV width, $20-40$ in $2$ GeV width, $[40,43]$, $[
 > 2. What problems can appear if bins are too narrow? What problems can appear if bins are too wide?
 
 ## Trigger
-The CMS trigger system has two levels:
-- L1 (hardware level)
-- HLT (software level)
+Trigger is the online event-selection system used by CMS to reduce the collision data size to a manageable level for storage and reconstruction. It selects potentially interesting events in real time based on detector signatures and physics objects. In CMS, the trigger system is usually divided into:
+- L1 (hardware level);
+- HLT (software level).
 
-`HLT_Dimuon0_Upsilon` is an HLT path, applied after L1 preselection.
+`HLT_Dimuon0_Upsilon` is an HLT trigger oath, applied after L1 preselection.
 
 To inspect the full trigger content, use [cmshltinfo](https://cmshltinfo-dev.app.cern.ch/summary):
 1. Search `HLT_Dimuon0_Upsilon`. If not found, set year to `2025` and ensure `Parking` is selected in `Stream Select`.

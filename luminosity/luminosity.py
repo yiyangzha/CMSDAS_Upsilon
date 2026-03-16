@@ -29,7 +29,7 @@ ERA_RUN_RANGES: Dict[str, Tuple[int, int]] = {
     "2025G":   (397854, 398903),
 }
 
-BRILCALC_EXE = "brilcalc"
+BRILCALC_EXE = os.environ.get("BRILCALC_EXE", "brilcalc")
 BRILCALC_CONNECT = "web"
 NORMTAG: Optional[str] = None
 LUMI_UNIT = "/fb"
@@ -41,12 +41,16 @@ class RunRange:
     end: int
 
 
-def ensure_brilcalc_exists(exe: str) -> None:
-    if shutil.which(exe) is None:
-        raise RuntimeError(
-            f'Cannot find "{exe}" in PATH. '
-            f"Please set up brilcalc (CMS environment) or set BRILCALC_EXE to the full path."
-        )
+@dataclass(frozen=True)
+class BrilcalcInvocation:
+    mode: str
+    cmd_prefix: List[str]
+    display_name: str
+
+
+def is_executable_file(path_str: str) -> bool:
+    p = Path(path_str).expanduser()
+    return p.is_file() and os.access(str(p), os.X_OK)
 
 
 def load_cert_json(path: Path) -> Dict[str, List[List[int]]]:
@@ -91,16 +95,103 @@ def build_clean_env_for_brilcalc() -> Dict[str, str]:
     return env
 
 
+def resolve_brilcalc_invocation(exe: str) -> BrilcalcInvocation:
+    """
+    Resolve how to invoke brilcalc without requiring manual shell setup.
+
+    Priority:
+      1) BRILCALC_EXE if it is an absolute/relative executable path
+      2) BRILCALC_EXE found in PATH
+      3) common direct CVMFS Brilconda paths
+      4) CMS lxplus singularity wrapper fallback
+    """
+    # 1) Explicit path from BRILCALC_EXE
+    if os.path.sep in exe or exe.startswith("."):
+        expanded = str(Path(exe).expanduser())
+        if is_executable_file(expanded):
+            return BrilcalcInvocation(
+                mode="direct",
+                cmd_prefix=[expanded],
+                display_name=expanded,
+            )
+        raise RuntimeError(f'BRILCALC_EXE="{exe}" is not an executable file.')
+
+    # 2) Search PATH
+    found = shutil.which(exe)
+    if found and is_executable_file(found):
+        return BrilcalcInvocation(
+            mode="direct",
+            cmd_prefix=[found],
+            display_name=found,
+        )
+
+    # 3) Common central installations
+    direct_candidates = [
+        "/cvmfs/cms-bril.cern.ch/brilconda3/bin/brilcalc",
+        "/cvmfs/cms-bril.cern.ch/brilconda/bin/brilcalc",
+        "/nfshome0/lumipro/brilconda3/bin/brilcalc",
+    ]
+    for cand in direct_candidates:
+        if is_executable_file(cand):
+            return BrilcalcInvocation(
+                mode="direct",
+                cmd_prefix=[cand],
+                display_name=cand,
+            )
+
+    # 4) lxplus singularity wrapper fallback
+    singularity_candidates = [
+        shutil.which("singularity"),
+        "/usr/bin/singularity",
+    ]
+    image_candidates = [
+        "/cvmfs/unpacked.cern.ch/gitlab-registry.cern.ch/cms-cloud/brilws-docker:latest",
+    ]
+
+    for sing in singularity_candidates:
+        if not sing or not is_executable_file(sing):
+            continue
+        for img in image_candidates:
+            if Path(img).exists():
+                return BrilcalcInvocation(
+                    mode="wrapper",
+                    cmd_prefix=[
+                        sing,
+                        "-s",
+                        "exec",
+                        "--env",
+                        "PYTHONPATH=/home/bril/.local/lib/python3.10/site-packages",
+                        img,
+                        "brilcalc",
+                    ],
+                    display_name=f"{sing} -s exec ... {img} brilcalc",
+                )
+
+    raise RuntimeError(
+        'Cannot find a usable brilcalc invocation.\n'
+        f'Checked:\n'
+        f'  - BRILCALC_EXE="{exe}"\n'
+        f'  - PATH lookup for "{exe}"\n'
+        f'  - common CVMFS Brilconda paths\n'
+        f'  - lxplus singularity BRIL wrapper\n'
+        f'Please make sure /cvmfs is mounted and singularity is available.'
+    )
+
+
+def ensure_brilcalc_exists(exe: str) -> BrilcalcInvocation:
+    return resolve_brilcalc_invocation(exe)
+
+
 def run_brilcalc_lumi(
-    exe: str,
+    invocation: BrilcalcInvocation,
     connect: str,
     cert_json: Path,
     run_range: RunRange,
     unit: str,
     normtag: Optional[str] = None,
 ) -> str:
-    cmd = [
-        exe, "lumi",
+    cmd = list(invocation.cmd_prefix) + [
+        "lumi",
         "-c", connect,
         "--begin", str(run_range.start),
         "--end", str(run_range.end),
@@ -124,6 +215,7 @@ def run_brilcalc_lumi(
     if proc.returncode != 0:
         raise RuntimeError(
             "brilcalc failed.\n"
+            f"Invocation: {invocation.display_name}\n"
             f"Command: {' '.join(cmd)}\n"
             f"Return code: {proc.returncode}\n"
             f"STDERR:\n{proc.stderr}\n"
@@ -188,14 +280,14 @@ def write_result_csv(out_path: Path, run_range: RunRange, lumi_value: float) -> 
 def main() -> int:
     cert_path = Path(JSON_FILENAME).expanduser().resolve()
 
-    ensure_brilcalc_exists(BRILCALC_EXE)
+    invocation = ensure_brilcalc_exists(BRILCALC_EXE)
     _ = load_cert_json(cert_path)
 
     eras = validate_eras(ERAS, ERA_RUN_RANGES)
     rr = combined_run_range(eras, ERA_RUN_RANGES)
 
     stdout = run_brilcalc_lumi(
-        exe=BRILCALC_EXE,
+        invocation=invocation,
         connect=BRILCALC_CONNECT,
         cert_json=cert_path,
         run_range=rr,
@@ -212,6 +304,7 @@ def main() -> int:
     print(f"[OK] Run range: {rr.start} - {rr.end}")
     print(f"[OK] Integrated recorded lumi: {total_recorded:.6f} ({LUMI_UNIT})")
     print(f"[OK] Wrote: {out_path}")
+    print(f"[OK] Invocation used: {invocation.display_name}")
     return 0
 
 

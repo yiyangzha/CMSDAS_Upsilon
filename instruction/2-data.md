@@ -46,7 +46,11 @@ dasgoclient --query="file dataset=/ParkingDoubleMuonLowMass0/Run2025E-PromptReco
 > cmsRun run_upsilon.py inputFiles=<one_MINIAOD_file_from_your_DAS_query>
 > ```
 
-After production, let's explore the file. 
+After production, let's explore the file. The file is stored in `.root` format.
+- [ROOT documentation](https://root.cern.ch/root/htmldoc/guides/users-guide/ROOTUsersGuide.html)
+- [ROOT tutorials and examples](https://root.cern.ch/doc/master/group__tutorials.html)
+
+
 ```bash
 root -l rootuple.root
 ...

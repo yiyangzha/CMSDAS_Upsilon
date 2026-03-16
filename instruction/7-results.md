@@ -19,15 +19,20 @@ python3 -c "import pandas,numpy,matplotlib,mplhep; print('python packages ok')"
 > Continue only after both `python3 -c` tests complete successfully.
 
 ## Luminosity
-Luminosity, $\mathcal{L}$, is the absolute normalization of the measurement. Any luminosity bias directly rescales the extracted cross section. We will use `Cert_Collisions2025_391658_398903_Muon.json`, which was previously employed to generate the data sample, to compute the integrated luminosity of the dataset used in the exercise after mask selection.
+Luminosity, $\mathcal{L}$, is the absolute normalization of the measurement. Any luminosity bias directly rescales the extracted cross section. We will calculate the integrated luminosity from certified luminosity mask selection, `Cert_Collisions2025_391658_398903_Muon.json`, which was previously employed to generate the data sample.
+
+`brilcalc` is a standard CMS tool for calculating integrated luminosity from certified luminosity mask selection (`Cert_Collisions2025_391658_398903_Muon.json`). In CMS workflows, `brilcalc` is the official and widely recommended tool for luminosity evaluation, and the calculation is typically performed with the appropriate normtag and stable-beam selection. 
+
+In this exercise, we will use `luminosity.py` basing on `brilcalc` to calculate the integrated luminosity.
 
 ```bash
 cd /path/to/CMSDAS_Upsilon/luminosity
 
-mkdir -p results
-cp /eos/home-y/yiyangz/public/CMSDAS/2025G.csv ./results/
+python3 luminosity.py
 ```
 
+Outputs:
+- `/path/to/CMSDAS_Upsilon/luminosity/results/2025G.csv`
 
 ## Cross Section
 
