@@ -19,7 +19,11 @@ Physical interpretation of the numerator cuts:
 - `vProb` and candidate/charge requirements model analysis-level quality and topology constraints.
 
 ## Efficiency Calculation
-This part uses a full-chain MC with generation, detector simulation, and particle reconstruction to model the real data-taking chain. In `mc_efficiency.C`, the core logic is:
+We used the `PYTHIA` tool to simulate a large number of $\Upsilon\to\mu^+\mu^-$ decay events and their reconstruction process by the detector. This gave us a full-chain MC with generation, detector simulation, and particle reconstruction to model the real data-taking chain.
+
+By applying the other selections after acceptance selection to these events and calculating the proportion of events that pass the filter relative to the total number of events, we can estimate the efficiency values.
+
+In `mc_efficiency.C`, the core logic is:
 ```cpp
 if (std::abs(gen_muonP_p4->Eta()) > kMuonAbsEtaMax) continue;
 if (std::abs(gen_muonM_p4->Eta()) > kMuonAbsEtaMax) continue;

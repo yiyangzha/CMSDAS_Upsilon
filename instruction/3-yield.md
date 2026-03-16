@@ -3,10 +3,8 @@
 In this part you fit the dimuon mass spectrum in each $(p_\mathrm{T},|y|)$ bin and extract $N_{1S}$, $N_{2S}$, and $N_{3S}$.
 These are the numerator terms in the cross-section formula.
 
-Tree and bin definitions are already in `yield.C`:
+Bin definitions are in `yield.C`:
 ```cpp
-static const char* TREE_PATH = "rootuple/mm_tree";
-...
 static const double Y_EDGES[] = {0.0, 0.6, 1.2, 1.8, 2.4};
 ...
 for (int i = 0; i <= 20; ++i) e.push_back((double)i);
@@ -46,9 +44,8 @@ RooAddPdf model((std::string("model")+suf).c_str(), "model",
 ```
 
 Physical meaning:
-- signal shapes represent the three $\Upsilon$ resonances,
-- parameter links between $1S/2S/3S$ encode known mass-spacing behavior,
-- background absorbs non-resonant dimuon contributions under the peaks.
+- signal PDFs (double crystal-ball functions) shapes represent the three $\Upsilon$ resonances,
+- background PDF (2nd order polynomial) absorbs non-resonant dimuon contributions under the peaks.
 
 ### Extended Likelihood
 In the yield fit, we use
@@ -92,3 +89,9 @@ Use both fit `.pdf` and `results_ext.csv` to check:
 > #### **Question**
 > 1. Which bins are most likely statistics-limited, and why?
 > 2. How is this reflected in both `.pdf` shapes and `results_ext.csv`, and does this match your expectation?
+> 3. Why did we choose Crystall-Ball as the signal PDF? Why do we use double Crystall-Ball functions for each $\Upsilon$ state?
+> #### **Task**
+> Try modifying `yield.C` by yourself. Change the signal PDF used for fitting each $\Upsilon$ state to:
+> 1. single Crystall-Ball function,
+> 2. double-Gaussian function.
+> Re-examine the fitting results (`.pdf` and `.csv`) to determine whether the fitting function fully describes the shape of the signal. Use these results to further elaborate on your answer to previous Question 3.

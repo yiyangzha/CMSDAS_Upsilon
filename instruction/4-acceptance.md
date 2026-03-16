@@ -21,7 +21,9 @@ Acceptance cuts:
 
 
 ## Acceptance Calculation
-This part uses a generation-level MC and `acceptance.C`. The core logic is:
+We used the `particle-GUN` tool to simulate a large number of $\Upsilon\to\mu^+\mu^-$ decay events. By applying acceptance criteria to these events and calculating the proportion of events that pass the filter relative to the total number of events, we can estimate the acceptance values.
+
+This part uses `acceptance.C`. The core logic is:
 ```cpp
 All[iY][iPt] += 1.0;
 ...

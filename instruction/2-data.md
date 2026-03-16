@@ -132,5 +132,9 @@ Inspect the output variable distributions in `/path/to/CMSDAS_Upsilon/data/resul
 Inspect the output variable distributions with selections in the save path you set.
 
 > #### **Question**
-> 1. Compare distributions before and after your selections: what observables have changed, and why?
-> 2. Is the behavior consistent with trigger and vertex-quality expectations?
+> 1. Compare distributions before and after your selections: what observable distributions have changed, and why? Examine `dimuon_mass.pdf`. After applying these selections, has the background level under the $\Upsilon$ signal peak decreased? Based on this observation, explain the purpose of applying these filters.
+> #### **Task**
+> Try applying a stricter selection criterion, such as $vProb>0.1$. Observe how the observable distributions change. 
+> #### **Question**
+> 2. Examine `dimuon_mass.pdf`. Has the background level beneath the $\Upsilon$ signal peak decreased further? 
+> 3. Consider why we did not use this stricter selection criterion to further reduce the background.
