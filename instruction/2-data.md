@@ -74,7 +74,7 @@ The output of `mm_tree->Print()` lists all the available variables in our sample
 | `charge` | `int` | sum of the two muon charges |
 | `dimuon_p4` | `TLorentzVector` | reconstructed 4-momentum of the $\Upsilon$ candidate, can be used to compute $p_\mathrm{T}$, $y$, mass, $\eta$, $\phi$, etc. |
 | `muonP_p4` | `TLorentzVector` | reconstructed 4-momentum of the $\mu^{+}$ |
-| `muonM_p4` | `TLorentzVector` | reconstructed 4-momentum of the \mu^{-}$ |
+| `muonM_p4` | `TLorentzVector` | reconstructed 4-momentum of the $\mu^{-}$ |
 | `vProb` | `float` | vertex-fit probability of the dimuon candidate, larger values indicate a better fit quality, thus more likely represent real $\Upsilon$ rather than background |
 
 

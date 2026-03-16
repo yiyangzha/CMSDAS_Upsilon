@@ -3,10 +3,11 @@
 This part combines $N$, $A$, $\epsilon$, and $\mathcal{L}$ to produce the differential cross sections and final figures.
 
 ## Python Setup
-**Note: Before continuing, please open a new terminal or reconnect to `lxplus8`.**
 
 ```bash
 ssh <cern_username>@lxplus8.cern.ch
+
+cmssw-el8
 
 cd /path/to/CMSDAS_Upsilon/data/CMSSW_15_0_18/src
 cmsenv
@@ -16,7 +17,7 @@ python3 -c "import pandas,numpy,matplotlib,mplhep; print('python packages ok')"
 ```
 
 > #### **Checkpoint**
-> Continue only after both `python3 -c` tests complete successfully.
+> Continue only after both `python3 -c` tests complete successfully. If not, try again from the beginning of this part **after re-opening a new terminal or re-connecting to `lxplus8`**.
 
 ## Luminosity
 Luminosity, $\mathcal{L}$, is the absolute normalization of the measurement. Any luminosity bias directly rescales the extracted cross section. We will calculate the integrated luminosity from certified luminosity mask selection, `Cert_Collisions2025_391658_398903_Muon.json`, which was previously employed to generate the data sample.
