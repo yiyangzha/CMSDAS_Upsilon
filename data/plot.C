@@ -163,6 +163,12 @@ void plot() {
     h_muonP_phi.Fill(muonP_p4->Phi());
     h_muonM_phi.Fill(muonM_p4->Phi());
 
+    if (n_filled % 1000000 == 0) {
+      const double pct = (n_entries > 0) ? (100.0 * (double)n_filled / (double)n_entries) : 0.0;
+      std::cout << "Processing entry " << n_filled << " / " << n_entries
+                << " (" << pct << "%)\r" << std::flush;
+    }
+
     ++n_filled;
   }
 
