@@ -1,6 +1,6 @@
 # Part 5 - Efficiency
 
-This part computes efficiency $\epsilon(p_\mathrm{T},|y|)$, the probability that events inside the fiducial region are reconstructed and pass analysis selections.
+This part computes efficiency $\epsilon(p_\mathrm{T},|y|)$, the probability that events pass analysis selections.
 
 Why efficiency is needed:
 - similar to acceptance, efficiency quantifies the probability that fiducial events survive the full analysis chain.
