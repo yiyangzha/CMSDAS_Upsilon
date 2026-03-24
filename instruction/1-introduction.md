@@ -7,7 +7,7 @@
 - This is the first $\Upsilon$ cross-section measurement based on 2025 data and also serves as a data-quality validation.
 
 
-Note: in collider physics, the symbols for common physical varibles are defined as follows:
+Note: In collider physics, the symbols for common physical variables are defined as follows:
 - The transverse momentum, $p_\mathrm{T}$, is the component of a particle momentum perpendicular to the beam axis;
 - The rapidity, $y$ is defined as $\frac{1}{2}\ln\frac{E+p_z}{E-p_z}$;
 - The pseudorapidity, $\eta$, is defined as $-\ln\tan(\theta/2)$, where $\theta$ is the polar angle with respect to the beam direction;
@@ -30,7 +30,7 @@ Note: in collider physics, the symbols for common physical varibles are defined 
 - [ROOT tutorials and examples](https://root.cern/doc/master/group__Tutorials.html)
 - [RooFit documentation](https://root.cern.ch/doc/master/group__Roofitmain.html)
 - [CMS Offline WorkBook (official CMS software introduction and workflow reference)](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBook)
-- [CMSSW setup and first steps ](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookChapter1)
+- [CMSSW setup and first steps](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookChapter1)
 - [CMS DAS pre-exercises](https://fnallpc.github.io/cms-das-pre-exercises/)
 - [PDG live (the reference to the particle properties)](https://pdglive.lbl.gov/)
 
@@ -38,14 +38,16 @@ Note: in collider physics, the symbols for common physical varibles are defined 
 ## Cross Section
 The (production) cross section of $\Upsilon$ characterizes its production probability in the collision. Because the $\Upsilon$ has a very short lifetime, it decays before it can be detected by the detector. Therefore, we can only infer whether an $\Upsilon$ meson was produced by analyzing the more stable particles from $\Upsilon$'s decay, thereby measuring the cross section.
 
-More specifically, in this analysis, we will use the decay of $\Upsilon\to\mu^+\mu^-$ to do the measurement. 
+More specifically, in this analysis, we will use the decay of $\Upsilon\to\mu^+\mu^-$ to do the measurement.
 > #### **Question**
-> 2. Using PDG Live (https://pdglive.lbl.gov), search common decay modes of $\Upsilon(\mathrm{nS})$ ($n=1,2,3$). Why we choose this decay channel ($\Upsilon\to\mu^+\mu^-$) to measure the cross section?
+> 2. Using PDG Live (https://pdglive.lbl.gov), search common decay modes of $\Upsilon(\mathrm{nS})$ ($n=1,2,3$). Why do we choose this decay channel ($\Upsilon\to\mu^+\mu^-$) to measure the cross section?
 
 For each state $\Upsilon(\mathrm{nS})$ ($n=1,2,3$), the measured cross section is
 
-$\mathcal{B}(\Upsilon(\mathrm{nS})\to\mu^+\mu^-)\,\frac{d^2\sigma_n}{dp_\mathrm{T}\,d|y|}
-=\frac{N_n}{\mathcal{L}\,A_n\,\epsilon_n\,\Delta p_\mathrm{T}\,2\Delta|y|}$.
+$$
+\mathcal{B}(\Upsilon(\mathrm{nS})\to\mu^+\mu^-)\,\frac{d^2\sigma_n}{dp_\mathrm{T}\,d|y|}
+=\frac{N_n}{\mathcal{L}\,A_n\,\epsilon_n\,\Delta p_\mathrm{T}\,2\Delta|y|}
+$$
 
 Here:
 - $\mathcal{B}(\Upsilon(\mathrm{nS})\to\mu^+\mu^-)$ is the branching ratio (or probability) of $\Upsilon(\mathrm{nS})$ decaying into two muons.
@@ -69,7 +71,7 @@ Trigger is the online event-selection system used by CMS to reduce the collision
 - L1 (hardware level);
 - HLT (software level).
 
-`HLT_Dimuon0_Upsilon` is an HLT trigger oath, applied after L1 preselection.
+`HLT_Dimuon0_Upsilon` is an HLT trigger path, applied after L1 preselection.
 
 To inspect the full trigger content, use [cmshltinfo](https://cmshltinfo-dev.app.cern.ch/summary):
 1. Search `HLT_Dimuon0_Upsilon`. If not found, set year to `2025` and ensure `Parking` is selected in `Stream Select`.

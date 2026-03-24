@@ -23,7 +23,7 @@ For any polarization scenario, you can decompose it into transverse and longitud
 
 $R_A(\lambda_\vartheta) = \frac{A(\lambda_\vartheta)}{A(0)}, \qquad R_\sigma(\lambda_\vartheta) = \frac{\sigma(\lambda_\vartheta)}{\sigma(0)} = \frac{1}{R_A(\lambda_\vartheta)}$.
 
-## Acceptance Recalculation with Polarization Re-weighting
+## Acceptance Recalculation with Polarization Reweighting
 We will start from the available unpolarized MC sample and split events into effective transverse and longitudinal classes with an event-by-event probabilistic assignment.
 
 For the transverse and longitudinal polarizations, we have
@@ -46,8 +46,8 @@ Then, generate a random number $r\in[0,1)$. If $r<f_T$, classify the event as tr
 >    root -l acceptance_polrw.C
 >    ```
 >
-> Hints:
-> 1. In the HX definition used here, $\theta^*$ is the polar angle of one muon (in the **$\Upsilon$ rest frame**) with respect to the $\Upsilon$ flight direction (in the **laboratory frame**).
+> Hint:
+> In the HX definition used here, $\theta^*$ is the polar angle of one muon (in the **$\Upsilon$ rest frame**) with respect to the $\Upsilon$ flight direction (in the **laboratory frame**).
 
 ### Polarization Correction Factors
 > #### **Task**

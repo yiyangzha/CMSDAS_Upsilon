@@ -25,7 +25,7 @@ Luminosity, $\mathcal{L}$, is the absolute normalization of the measurement. Any
 `brilcalc` is a standard CMS tool for calculating integrated luminosity from certified luminosity mask selection (`Cert_Collisions2025_391658_398903_Muon.json`). In CMS workflows, `brilcalc` is the official and widely recommended tool for luminosity evaluation, and the calculation is typically performed with the appropriate normtag and stable-beam selection. 
 - [Luminosity short exercise in CMS DAS 2024](https://cmsdas-cern-2024-short-ex-lumi.docs.cern.ch)
 
-In this exercise, we will use `luminosity.py` basing on `brilcalc` to calculate the integrated luminosity.
+In this exercise, we will use `luminosity.py` based on `brilcalc` to calculate the integrated luminosity.
 
 ```bash
 cd /path/to/CMSDAS_Upsilon/luminosity
@@ -38,8 +38,10 @@ Outputs:
 
 ## Cross Section
 
-$\mathcal{B}(\Upsilon(\mathrm{nS})\to\mu^+\mu^-)\,\frac{d^2\sigma_n}{dp_\mathrm{T}\,d|y|}
-=\frac{N_n}{\mathcal{L}\,A_n\,\epsilon_n\,\Delta p_\mathrm{T}\,2\Delta|y|}$.
+$$
+\mathcal{B}(\Upsilon(\mathrm{nS})\to\mu^+\mu^-)\,\frac{d^2\sigma_n}{dp_\mathrm{T}\,d|y|}
+=\frac{N_n}{\mathcal{L}\,A_n\,\epsilon_n\,\Delta p_\mathrm{T}\,2\Delta|y|}
+$$
 
 **Note**: rapidity width is defined as $2\Delta|y|=\Delta y$.
 
@@ -72,7 +74,7 @@ Plot meaning:
 > #### **Question**
 > 3. After inspecting these `.pdf`, what are the observed differential cross-section trends versus $p_\mathrm{T}$ and $y$? 
 > 4. Why do these trends appear, and are they consistent with your physical expectation?
-> 5. In `2025vs2022.pdf`, we have plotted ratios of our new measurement results over the 2022 results as functions of $p_\mathrm{T}$ and $y$. Are they consistent with 1 within the uncertainty? 
-> 6. If some points are inconsistent, apart from not accounting all sources of systematics, what other reasons might there be? Hint: we only used MC to calculate efficiency. Conduct research by yourself to find possible solutions.
+> 5. In `2025vs2022.pdf`, we have plotted ratios of our new measurement results to the 2022 results as functions of $p_\mathrm{T}$ in two rapidity intervals. Are they consistent with 1 within the uncertainty?
+> 6. If some points are inconsistent, apart from not accounting for all sources of systematic uncertainty, what other reasons might there be? Hint: we only used MC to calculate efficiency. Conduct research by yourself to find possible solutions.
 
 **Enabled by the new trigger (`HLT_Dimuon0_Upsilon`), we measured the differential cross section in $p_\mathrm{T}\in[0,20]$ GeV at 13.6 TeV for the first time!**

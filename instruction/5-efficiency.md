@@ -4,7 +4,7 @@ This part computes efficiency $\epsilon(p_\mathrm{T},|y|)$, the probability that
 
 Why efficiency is needed:
 - similar to acceptance, efficiency quantifies the probability that fiducial events survive the full analysis chain.
-- the final selection also improves signal-to-background ratio, which stabilizes the mass fits and helps reduce statistical/fit uncertainty.
+- the final selection also improves the signal-to-background ratio, which stabilizes the mass fits and helps reduce statistical/fit uncertainty.
 
 ## Efficiency Definition
 
@@ -21,7 +21,7 @@ Physical interpretation of the numerator cuts:
 ## Efficiency Calculation
 We used the `PYTHIA` tool to simulate a large number of $\Upsilon\to\mu^+\mu^-$ decay events and their reconstruction process by the detector. This gave us a full-chain MC with generation, detector simulation, and particle reconstruction to model the real data-taking chain.
 
-By applying the other selections after acceptance selection to these events and calculating the proportion of events that pass the filter relative to the total number of events, we can estimate the efficiency values.
+By applying the remaining selections after the fiducial acceptance selection to these events and calculating the proportion of events that pass the filter relative to the total number of events, we can estimate the efficiency values.
 
 In `mc_efficiency.C`, the core logic is:
 ```cpp
@@ -51,6 +51,6 @@ Outputs are efficiency maps in $(p_\mathrm{T},|y|)$:
 
 
 > #### **Question**
-> 1. In low-$p_\mathrm{T}$ (high-$p_\mathrm{T}$) bins, which numerator requirement is most likely to dominate the efficiency loss (`trigger`, `vProb`, or acceptance selections), and why?
+> 1. In low-$p_\mathrm{T}$ (high-$p_\mathrm{T}$) bins, which numerator requirement is most likely to dominate the efficiency loss (`trigger`, `vProb`, or reconstructed kinematic selections), and why?
 > #### **Task**
 > Verify your assumption by modifying the program by yourself to calculate the efficiency of each selection separately.

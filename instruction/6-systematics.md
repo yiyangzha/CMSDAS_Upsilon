@@ -2,14 +2,16 @@
 
 Uncertainties quantify the precision and reliability of a measurement. They are usually divided into statistical uncertainties, which arise from the finite size of the data sample, and systematic uncertainties, which come from sources such as detector effects, efficiency corrections, fitting choices, luminosity, or modeling assumptions. A complete result should report both types of uncertainties clearly.
 
-The statistical uncertainties comes directly from the previous use of Roofit to fit the yield data. In this section, we will evaluate systematics uncertainties.
+The statistical uncertainties come directly from the RooFit yield fits performed in the previous part. In this section, we will evaluate systematic uncertainties.
 
 ## Sources
 Every term in the cross-section expression can carry systematic uncertainty:
 
-$\mathcal{B}\frac{d^2\sigma}{dp_\mathrm{T}\,dy}
+$$
+\mathcal{B}\frac{d^2\sigma}{dp_\mathrm{T}\,dy}
 \propto
-\frac{N}{\mathcal{L}\,A\,\epsilon}$.
+\frac{N}{\mathcal{L}\,A\,\epsilon}
+$$
 
 This means uncertainty can come from:
 - yield extraction ($N$),
@@ -39,16 +41,16 @@ Threshold-variation setup:
 >    cp acceptance.C acceptance_pt3p0.C
 >    cp acceptance.C acceptance_pt3p2.C
 >    ```
-> 2. In each variant, change both the threshold, function name (thus has the same name as the file), and output file names to avoid overwriting nominal results.
+> 2. In each variant, change both the threshold, function name (so that it has the same name as the file), and output file names to avoid overwriting nominal results.
 >    Threshold line:
 >    ```cpp
 >    const double kMuonPtMin     = 3.1;
 >    ```
 > 3. Run nominal/down/up and produce three `.csv` files.
-> 4. Build a program by yourself, compute per-bin acceptance systematic:
+> 4. Write a program by yourself to compute the per-bin acceptance systematic uncertainty:
 >
 >    $\delta_A^{\mathrm{syst}}=\frac{\max\left(|A_{\mathrm{up}}-A_{\mathrm{nom}}|,|A_{\mathrm{down}}-A_{\mathrm{nom}}|\right)}{A_{\mathrm{nom}}}$.
-> 5. Plot acceptance systematic over $p_\mathrm{T}$ in each rapidity bin.
+> 5. Plot the acceptance systematic over $p_\mathrm{T}$ in each rapidity bin.
 
 
 > #### **Question**

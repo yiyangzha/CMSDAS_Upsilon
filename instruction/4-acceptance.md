@@ -21,7 +21,7 @@ Acceptance cuts:
 
 
 ## Acceptance Calculation
-We used the `particle-GUN` tool to simulate a large number of $\Upsilon\to\mu^+\mu^-$ decay events. By applying acceptance criteria to these events and calculating the proportion of events that pass the filter relative to the total number of events, we can estimate the acceptance values.
+We used the `Particle Gun` tool to simulate a large number of $\Upsilon\to\mu^+\mu^-$ decay events. By applying acceptance criteria to these events and calculating the proportion of events that pass the filter relative to the total number of events, we can estimate the acceptance values.
 
 This part uses `acceptance.C`. The core logic is:
 ```cpp
