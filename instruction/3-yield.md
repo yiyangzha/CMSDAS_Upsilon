@@ -48,7 +48,7 @@ RooAddPdf model((std::string("model")+suf).c_str(), "model",
 
 Physical meaning:
 - signal PDFs (double Crystal Ball functions) represent the three $\Upsilon$ resonances,
-- background PDF (an exponential multiplied by a quadratic term) absorbs non-resonant dimuon contributions under the peaks.
+- background PDF (an exponential multiplied by a 2nd order polynomial) absorbs non-resonant dimuon contributions under the peaks.
 
 ### Extended Likelihood
 In the yield fit, we use
