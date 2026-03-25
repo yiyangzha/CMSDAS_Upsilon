@@ -93,7 +93,7 @@ Use both fit `.pdf` and `results_ext.csv` to check:
 > 1. What is the dependence of $\Upsilon$ yields and the width of the mass peak as functions of $p_\mathrm{T}$ or $y$? Why?
 > 2. How is this reflected in both `.pdf` shapes and `results_ext.csv`, and does this match your expectation?
 > 3. Why did we choose a Crystal Ball function as the signal PDF? Why do we use double Crystal Ball functions for each $\Upsilon$ state?
-> #### **Task**
+> #### **Task (Optional)**
 > Try modifying `yield.C` by yourself. Change the signal PDF used for fitting each $\Upsilon$ state to:
 > 1. single Crystal Ball function,
 > 2. double Gaussian function.
