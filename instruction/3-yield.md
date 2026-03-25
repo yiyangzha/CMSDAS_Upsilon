@@ -74,7 +74,7 @@ root -l yield.C
 Outputs:
 - `/path/to/CMSDAS_Upsilon/yield/results/2025G/yields.csv`
 - `/path/to/CMSDAS_Upsilon/yield/results/2025G/results_ext.csv`
-- per-bin `.pdf` files, for example `fit_pt_20-22_y_0p0-0p6.pdf`
+- per-bin fit results, for example `fit_pt_20-22_y_0p0-0p6.pdf`
 
 What you obtain from this step:
 - fitted values for $N_{1S}$, $N_{2S}$, $N_{3S}$,
@@ -90,7 +90,7 @@ Use both fit `.pdf` and `results_ext.csv` to check:
 > Before moving on, mark bins with very low statistics or unstable covariance quality.
 
 > #### **Question**
-> 1. Which bins are most likely statistics-limited, and why?
+> 1. What is the dependence of $\Upsilon$ yields and the width of the mass peak as functions of $p_\mathrm{T}$ or $y$? Why?
 > 2. How is this reflected in both `.pdf` shapes and `results_ext.csv`, and does this match your expectation?
 > 3. Why did we choose a Crystal Ball function as the signal PDF? Why do we use double Crystal Ball functions for each $\Upsilon$ state?
 > #### **Task**
@@ -101,4 +101,4 @@ Use both fit `.pdf` and `results_ext.csv` to check:
 
 > #### **Question**
 > 4. Why can we only observe the three signal peaks of $\Upsilon(\mathrm{nS})$ ($n=1,2,3$)? Is it because the mass of $\Upsilon(\mathrm{4S})$ is too large? 
-> 5. Using PDG Live (https://pdglive.lbl.gov), search the mass and decay modes of $\Upsilon(\mathrm{4S})$. What is the branching ratio for $\Upsilon(\mathrm{4S})\to\mu^+\mu^-$? Why is it so small compared to $\Upsilon(\mathrm{nS})$ ($n=1,2,3$)?
+> 5. Using PDG Live (https://pdglive.lbl.gov), search the mass and decay modes of $\Upsilon(\mathrm{4S})$. What is value of $\mathcal{B}(\Upsilon(\mathrm{4S})\to e^+e^-)$, which should be similar to $\mathcal{B}(\Upsilon(\mathrm{4S})\to\mu^+\mu^-)$? Why is it so small compared to $\Upsilon(\mathrm{nS})$ ($n=1,2,3$)?
